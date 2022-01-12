@@ -79,6 +79,9 @@
     <Compile Include="home.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RJControls\RJToggleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Services\HomeService.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -110,14 +113,20 @@
   <ItemGroup>
     <Content Include="icons\ac %281%29.png" />
     <Content Include="icons\ac.png" />
+    <None Include="icons\connect.png" />
     <Content Include="icons\door %281%29.png" />
     <Content Include="icons\door.png" />
+    <None Include="icons\exit %281%29.png" />
+    <None Include="icons\exit.png" />
     <Content Include="icons\fridge %281%29.png" />
     <Content Include="icons\fridge.png" />
     <Content Include="icons\light-bulb %282%29.png" />
     <Content Include="icons\light-bulb.png" />
     <Content Include="icons\smart-tv %281%29.png" />
     <Content Include="icons\smart-tv.png" />
+    <None Include="icons\unplugged.png" />
+    <None Include="icons\switch-on.png" />
+    <None Include="icons\switch-off.png" />
     <Content Include="icons\wireless-router %281%29.png" />
     <Content Include="icons\wireless-router.png" />
   </ItemGroup>

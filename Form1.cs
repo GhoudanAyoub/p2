@@ -46,6 +46,7 @@ namespace p2
 
         private void button1_Click(object sender, EventArgs e)
         {
+            myControle = new Panel();
             panelN++;
             if (checkBox1.Checked)
             {
@@ -55,7 +56,7 @@ namespace p2
                 checkBox7.Checked = false;
                 checkBox8.Checked = false;
                 checkBox9.Checked = false;
-                myControle.Name = string.Format("door{0}", panelN);
+                myControle.Name = string.Format("door {0}", panelN);
             }
             else if (checkBox2.Checked)
             {
@@ -65,7 +66,7 @@ namespace p2
                 checkBox7.Checked = false;
                 checkBox8.Checked = false;
                 checkBox9.Checked = false;
-                myControle.Name = string.Format("frigde{0}", panelN);
+                myControle.Name = string.Format("frigde {0}", panelN);
             }
             else if (checkBox4.Checked)
             {
@@ -74,8 +75,8 @@ namespace p2
                 checkBox2.Checked = false;
                 checkBox7.Checked = false;
                 checkBox8.Checked = false;
-                checkBox9.Checked = false;
-                myControle.Name = string.Format("lamp{0}", panelN);
+                checkBox9.Checked = false; 
+                myControle.Name = string.Format("lamp {0}", panelN);
             }
             else if (checkBox7.Checked)
             {
@@ -85,7 +86,7 @@ namespace p2
                 checkBox2.Checked = false;
                 checkBox8.Checked = false;
                 checkBox9.Checked = false;
-                myControle.Name = string.Format("ac{0}", panelN);
+                myControle.Name = string.Format("ac {0}", panelN);
             }
             else if (checkBox8.Checked)
             {
@@ -95,7 +96,7 @@ namespace p2
                 checkBox7.Checked = false;
                 checkBox2.Checked = false;
                 checkBox9.Checked = false;
-                myControle.Name = string.Format("router{0}", panelN);
+                myControle.Name = string.Format("router {0}", panelN);
             }
             else if (checkBox9.Checked)
             {
@@ -105,9 +106,8 @@ namespace p2
                 checkBox7.Checked = false;
                 checkBox8.Checked = false;
                 checkBox9.Checked = false;
-                myControle.Name = string.Format("tv{0}", panelN);
+                myControle.Name = string.Format("tv {0}", panelN);
             }
-            myControle = new Panel();
             myControle.Location = new Point(300, 200);
             myControle.Size = new Size(64, 64);
             myControle.Text = (panelN).ToString();
@@ -199,12 +199,15 @@ namespace p2
             panel3.Controls.Remove(panels.Last());
             panels.RemoveAt(panelN - 2);
             panelN--;
+            panel6.Visible = false;
+            if (panel3.Controls.Count == 1) removeButton.Enabled = false;
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
 
             DialogResult dialogClose = MessageBox.Show("Do you Want To Add This furniture", "YES", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            
             if (dialogClose == DialogResult.OK)
             {
                 homeService.Ajouter(new home(myControle.Name, ZonecomboBox2.Text,"E",panelN));
@@ -220,46 +223,64 @@ namespace p2
 
         private void allumer_Click(object sender, EventArgs e)
         {
+
+
+            DialogResult dialogClose = MessageBox.Show("Do you Want To Turn On This furniture", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (dialogClose == DialogResult.OK)
+            {
             homeService.Modifier(int.Parse(b.Text), "A");
-            changeIcon(b,"A");
+            changeIcon(b, "A");
+            }
+           
         }
 
         private void Eteindre_Click(object sender, EventArgs e)
         {
-
-            homeService.Modifier(int.Parse(b.Text), "E");
-            changeIcon(b,"E");
+            DialogResult dialogClose = MessageBox.Show("Do you Want To Turn Off This furniture", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (dialogClose == DialogResult.OK)
+            {
+                homeService.Modifier(int.Parse(b.Text), "E");
+                changeIcon(b, "E");
+            }
         }
 
         private void connect_Click(object sender, EventArgs e)
         {
-            homeService.Modifier(int.Parse(b.Text), "C");
-            changeIcon(b,"C");
+            DialogResult dialogClose = MessageBox.Show("Do you Want To Connect This furniture", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (dialogClose == DialogResult.OK)
+            {
+                homeService.Modifier(int.Parse(b.Text), "C");
+                changeIcon(b, "C");
+            }
 
         }
 
         private void deconnect_Click(object sender, EventArgs e)
         {
-
-            homeService.Modifier(int.Parse(b.Text), "D");
-            changeIcon(b,"D");
+            DialogResult dialogClose = MessageBox.Show("Do you Want To Deconnect This furniture", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (dialogClose == DialogResult.OK)
+            {
+                homeService.Modifier(int.Parse(b.Text), "D");
+                changeIcon(b, "D");
+            }
         }
         private void changeIcon(Panel b,String valeur)
         {
-            if (b.Name.Contains("tv") && (valeur.Contains("A") || valeur.Contains("C"))) b.BackgroundImage = Properties.Resources.smart_tv;
-            else b.BackgroundImage = Properties.Resources.smart_tv__1_;
+            if (valeur.Contains("A") || valeur.Contains("C")){
+                if (b.Name.Contains("tv")) b.BackgroundImage = Properties.Resources.smart_tv;
+                else if (b.Name.Contains("door") ) b.BackgroundImage = Properties.Resources.door__1_;
+                else if (b.Name.Contains("lamp") ) b.BackgroundImage = Properties.Resources.light_bulb;
+                else if (b.Name.Contains("router") ) b.BackgroundImage = Properties.Resources.wireless_router;
+                else if (b.Name.Contains("ac") ) b.BackgroundImage = Properties.Resources.ac__1_;
+            }else
+            {
 
-            if (b.Name.Contains("door") && (valeur.Contains("A") || valeur.Contains("C"))) b.BackgroundImage = Properties.Resources.door__1_;
-            else b.BackgroundImage = Properties.Resources.door;
-
-            if (b.Name.Contains("lamp") && (valeur.Contains("A") || valeur.Contains("C"))) b.BackgroundImage = Properties.Resources.light_bulb;
-            else b.BackgroundImage = Properties.Resources.light_bulb__2_;
-
-            if (b.Name.Contains("router") && (valeur.Contains("A") || valeur.Contains("C"))) b.BackgroundImage = Properties.Resources.wireless_router;
-            else b.BackgroundImage = Properties.Resources.wireless_router__1_;
-
-            if (b.Name.Contains("ac") && (valeur.Contains("A") || valeur.Contains("C"))) b.BackgroundImage = Properties.Resources.ac__1_;
-            else b.BackgroundImage = Properties.Resources.ac;
+                if (b.Name.Contains("tv")) b.BackgroundImage = Properties.Resources.smart_tv__1_;
+                else if (b.Name.Contains("door")) b.BackgroundImage = Properties.Resources.door;
+                else if (b.Name.Contains("lamp")) b.BackgroundImage = Properties.Resources.light_bulb__2_;
+                else if (b.Name.Contains("router")) b.BackgroundImage = Properties.Resources.wireless_router__1_;
+                else if (b.Name.Contains("ac")) b.BackgroundImage = Properties.Resources.ac;
+            }
         }
 
     }

@@ -47,11 +47,22 @@ namespace p2.Services
         }
         public String AfficherStatus(int index)
         {
+
+            MySqlConnection sqlConn = new MySqlConnection();
+            MySqlCommand sqlCmd = new MySqlCommand();
+            string sSql = "SELECT status from home where currentPlace=" + index;
+            sqlConn.ConnectionString = "SERVER=localhost; DATABASE=f1; UID=ayoub; PASSWORD=ayoub";
+            sqlCmd.CommandText = sSql;
+            sqlCmd.CommandType = CommandType.Text;
+            sqlConn.Open();
+            sqlCmd.Connection = sqlConn;
+            MySqlDataReader reader = sqlCmd.ExecuteReader();
+            /*
             string sqlSelectAll = "SELECT status from home where currentPlace="+index;
 
             MySqlCommand cmd = Connection.getMySqlCommand();
             cmd.CommandText = sqlSelectAll;
-            MySqlDataReader reader = cmd.ExecuteReader();
+            MySqlDataReader reader = cmd.ExecuteReader();*/
             if ((reader.Read())) return reader["status"].ToString();
             return null;
         }
@@ -82,6 +93,15 @@ namespace p2.Services
             MySqlCommand cmd = Connection.getMySqlCommand();
             cmd.CommandText = "UPDATE home SET status=@status" +
                     " WHERE currentPlace=" + id;
+            cmd.Parameters.AddWithValue("@status", status);
+            cmd.ExecuteNonQuery();
+            return true;
+        }
+        public  bool ModifierAll(String Zone,String status)
+        {
+            MySqlCommand cmd = Connection.getMySqlCommand();
+            cmd.CommandText = "UPDATE home SET status=@status" +
+                    " WHERE zone LIKE '" + Zone+"'";
             cmd.Parameters.AddWithValue("@status", status);
             cmd.ExecuteNonQuery();
             return true;
