@@ -246,10 +246,12 @@ namespace p2
 
         private void connect_Click(object sender, EventArgs e)
         {
-            DialogResult dialogClose = MessageBox.Show("Do you Want To Connect This furniture", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            DialogResult dialogClose = MessageBox.Show("Do you Want To Connect This Zone", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (dialogClose == DialogResult.OK)
             {
-                homeService.Modifier(int.Parse(b.Text), "C");
+                connect.Enabled = false;
+                deconnect.Enabled = true;
+                homeService.ModifierAll(comboBox1.Text, "C");
                 changeIcon(b, "C");
             }
 
@@ -257,10 +259,12 @@ namespace p2
 
         private void deconnect_Click(object sender, EventArgs e)
         {
-            DialogResult dialogClose = MessageBox.Show("Do you Want To Deconnect This furniture", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            DialogResult dialogClose = MessageBox.Show("Do you Want To Deconnect This Zone", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (dialogClose == DialogResult.OK)
             {
-                homeService.Modifier(int.Parse(b.Text), "D");
+                connect.Enabled = true;
+                deconnect.Enabled = false;
+                homeService.ModifierAll(comboBox1.Text, "D");
                 changeIcon(b, "D");
             }
         }
@@ -283,5 +287,69 @@ namespace p2
             }
         }
 
+        private void checkBox9_CheckedChanged(object sender, EventArgs e)
+        {
+                checkBox1.Checked = false;
+                checkBox4.Checked = false;
+                checkBox7.Checked = false;
+                checkBox8.Checked = false;
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBox1.Checked = false;
+            checkBox4.Checked = false;
+            checkBox7.Checked = false;
+            checkBox8.Checked = false;
+            checkBox9.Checked = false;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+                checkBox2.Checked = false;
+                checkBox4.Checked = false;
+                checkBox7.Checked = false;
+                checkBox8.Checked = false;
+                checkBox9.Checked = false;
+            
+        }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+                checkBox1.Checked = false;
+                checkBox2.Checked = false;
+                checkBox7.Checked = false;
+                checkBox8.Checked = false;
+                checkBox9.Checked = false;
+            
+        }
+
+        private void checkBox8_CheckedChanged(object sender, EventArgs e)
+        {
+                checkBox1.Checked = false;
+                checkBox4.Checked = false;
+                checkBox7.Checked = false;
+                checkBox2.Checked = false;
+                checkBox9.Checked = false;
+        }
+
+        private void checkBox7_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBox1.Checked = false;
+            checkBox4.Checked = false;
+            checkBox2.Checked = false;
+            checkBox8.Checked = false;
+            checkBox9.Checked = false;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+                if (homeService.checkZoneDisc(comboBox1.Text)) { 
+                    connect.Enabled = true; deconnect.Enabled = false;
+                }
+                else { 
+                    connect.Enabled = false; deconnect.Enabled = true;
+                }
+        }
     }
 }

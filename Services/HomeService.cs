@@ -45,6 +45,21 @@ namespace p2.Services
             if (table.Rows.Count == 1) return true;
             return false;
         }
+        public bool checkZoneDisc(String  Zone)
+        {
+            MySqlConnection sqlConn = new MySqlConnection();
+            MySqlCommand sqlCmd = new MySqlCommand();
+            string sSql = "SELECT count(*) as cc from home where zone= '" + Zone+"' and status='D'";
+            sqlConn.ConnectionString = "SERVER=localhost; DATABASE=f1; UID=ayoub; PASSWORD=ayoub";
+            sqlCmd.CommandText = sSql;
+            sqlCmd.CommandType = CommandType.Text;
+            sqlConn.Open();
+            sqlCmd.Connection = sqlConn;
+            MySqlDataReader reader = sqlCmd.ExecuteReader();
+            if (reader.Read()) 
+                if(int.Parse(reader["cc"].ToString()) <0) return false;
+            return true;
+        }
         public String AfficherStatus(int index)
         {
 

@@ -37,8 +37,18 @@ namespace p2
             this.label5 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Eteindre = new System.Windows.Forms.Button();
+            this.allumer = new System.Windows.Forms.Button();
+            this.deconnect = new System.Windows.Forms.Button();
+            this.connect = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox9 = new System.Windows.Forms.CheckBox();
+            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
@@ -50,16 +60,6 @@ namespace p2
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.Eteindre = new System.Windows.Forms.Button();
-            this.allumer = new System.Windows.Forms.Button();
-            this.deconnect = new System.Windows.Forms.Button();
-            this.connect = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -160,6 +160,65 @@ namespace p2
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(225, 24);
             this.comboBox1.TabIndex = 9;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // Eteindre
+            // 
+            this.Eteindre.BackColor = System.Drawing.Color.White;
+            this.Eteindre.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Eteindre.Enabled = false;
+            this.Eteindre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Eteindre.ForeColor = System.Drawing.Color.White;
+            this.Eteindre.Image = global::p2.Properties.Resources.switch_off;
+            this.Eteindre.Location = new System.Drawing.Point(119, 107);
+            this.Eteindre.Name = "Eteindre";
+            this.Eteindre.Size = new System.Drawing.Size(106, 56);
+            this.Eteindre.TabIndex = 3;
+            this.Eteindre.UseVisualStyleBackColor = false;
+            this.Eteindre.Click += new System.EventHandler(this.Eteindre_Click);
+            // 
+            // allumer
+            // 
+            this.allumer.BackColor = System.Drawing.Color.White;
+            this.allumer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.allumer.Enabled = false;
+            this.allumer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.allumer.ForeColor = System.Drawing.Color.White;
+            this.allumer.Image = global::p2.Properties.Resources.switch_on;
+            this.allumer.Location = new System.Drawing.Point(5, 107);
+            this.allumer.Name = "allumer";
+            this.allumer.Size = new System.Drawing.Size(108, 56);
+            this.allumer.TabIndex = 2;
+            this.allumer.UseVisualStyleBackColor = false;
+            this.allumer.Click += new System.EventHandler(this.allumer_Click);
+            // 
+            // deconnect
+            // 
+            this.deconnect.BackColor = System.Drawing.Color.White;
+            this.deconnect.Enabled = false;
+            this.deconnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deconnect.ForeColor = System.Drawing.Color.White;
+            this.deconnect.Image = global::p2.Properties.Resources.unplugged;
+            this.deconnect.Location = new System.Drawing.Point(119, 33);
+            this.deconnect.Name = "deconnect";
+            this.deconnect.Size = new System.Drawing.Size(106, 68);
+            this.deconnect.TabIndex = 1;
+            this.deconnect.UseVisualStyleBackColor = false;
+            this.deconnect.Click += new System.EventHandler(this.deconnect_Click);
+            // 
+            // connect
+            // 
+            this.connect.BackColor = System.Drawing.Color.White;
+            this.connect.Enabled = false;
+            this.connect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.connect.ForeColor = System.Drawing.Color.White;
+            this.connect.Image = global::p2.Properties.Resources.connect;
+            this.connect.Location = new System.Drawing.Point(5, 33);
+            this.connect.Name = "connect";
+            this.connect.Size = new System.Drawing.Size(108, 68);
+            this.connect.TabIndex = 0;
+            this.connect.UseVisualStyleBackColor = false;
+            this.connect.Click += new System.EventHandler(this.connect_Click);
             // 
             // removeButton
             // 
@@ -184,6 +243,92 @@ namespace p2
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(233, 379);
             this.panel4.TabIndex = 7;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Image = global::p2.Properties.Resources.door;
+            this.checkBox1.Location = new System.Drawing.Point(15, 8);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(82, 85);
+            this.checkBox1.TabIndex = 9;
+            this.checkBox1.Text = "       ";
+            this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // checkBox9
+            // 
+            this.checkBox9.AutoSize = true;
+            this.checkBox9.Image = global::p2.Properties.Resources.smart_tv__1_;
+            this.checkBox9.Location = new System.Drawing.Point(115, 94);
+            this.checkBox9.Name = "checkBox9";
+            this.checkBox9.Size = new System.Drawing.Size(90, 85);
+            this.checkBox9.TabIndex = 8;
+            this.checkBox9.Text = "               ";
+            this.checkBox9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox9.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.checkBox9.UseVisualStyleBackColor = true;
+            this.checkBox9.CheckedChanged += new System.EventHandler(this.checkBox9_CheckedChanged);
+            // 
+            // checkBox8
+            // 
+            this.checkBox8.AutoSize = true;
+            this.checkBox8.Image = global::p2.Properties.Resources.wireless_router__1_;
+            this.checkBox8.Location = new System.Drawing.Point(15, 182);
+            this.checkBox8.Name = "checkBox8";
+            this.checkBox8.Size = new System.Drawing.Size(102, 85);
+            this.checkBox8.TabIndex = 7;
+            this.checkBox8.Text = "                  ";
+            this.checkBox8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox8.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.checkBox8.UseVisualStyleBackColor = true;
+            this.checkBox8.CheckedChanged += new System.EventHandler(this.checkBox8_CheckedChanged);
+            // 
+            // checkBox7
+            // 
+            this.checkBox7.AutoSize = true;
+            this.checkBox7.Image = global::p2.Properties.Resources.ac;
+            this.checkBox7.Location = new System.Drawing.Point(15, 273);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(54, 53);
+            this.checkBox7.TabIndex = 6;
+            this.checkBox7.Text = "      ";
+            this.checkBox7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox7.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.checkBox7.UseVisualStyleBackColor = true;
+            this.checkBox7.CheckedChanged += new System.EventHandler(this.checkBox7_CheckedChanged);
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Image = global::p2.Properties.Resources.light_bulb__2_;
+            this.checkBox4.Location = new System.Drawing.Point(15, 103);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(50, 53);
+            this.checkBox4.TabIndex = 3;
+            this.checkBox4.Text = "   ";
+            this.checkBox4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox4.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Image = global::p2.Properties.Resources.fridge__1_;
+            this.checkBox2.Location = new System.Drawing.Point(114, 8);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(82, 85);
+            this.checkBox2.TabIndex = 1;
+            this.checkBox2.Text = "        ";
+            this.checkBox2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // button1
             // 
@@ -311,144 +456,6 @@ namespace p2
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(951, 737);
             this.panel3.TabIndex = 0;
-            // 
-            // Eteindre
-            // 
-            this.Eteindre.BackColor = System.Drawing.Color.White;
-            this.Eteindre.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Eteindre.Enabled = false;
-            this.Eteindre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Eteindre.ForeColor = System.Drawing.Color.White;
-            this.Eteindre.Image = global::p2.Properties.Resources.switch_off;
-            this.Eteindre.Location = new System.Drawing.Point(119, 107);
-            this.Eteindre.Name = "Eteindre";
-            this.Eteindre.Size = new System.Drawing.Size(106, 56);
-            this.Eteindre.TabIndex = 3;
-            this.Eteindre.UseVisualStyleBackColor = false;
-            this.Eteindre.Click += new System.EventHandler(this.Eteindre_Click);
-            // 
-            // allumer
-            // 
-            this.allumer.BackColor = System.Drawing.Color.White;
-            this.allumer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.allumer.Enabled = false;
-            this.allumer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.allumer.ForeColor = System.Drawing.Color.White;
-            this.allumer.Image = global::p2.Properties.Resources.switch_on;
-            this.allumer.Location = new System.Drawing.Point(5, 107);
-            this.allumer.Name = "allumer";
-            this.allumer.Size = new System.Drawing.Size(108, 56);
-            this.allumer.TabIndex = 2;
-            this.allumer.UseVisualStyleBackColor = false;
-            this.allumer.Click += new System.EventHandler(this.allumer_Click);
-            // 
-            // deconnect
-            // 
-            this.deconnect.BackColor = System.Drawing.Color.White;
-            this.deconnect.Enabled = false;
-            this.deconnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deconnect.ForeColor = System.Drawing.Color.White;
-            this.deconnect.Image = global::p2.Properties.Resources.unplugged;
-            this.deconnect.Location = new System.Drawing.Point(119, 33);
-            this.deconnect.Name = "deconnect";
-            this.deconnect.Size = new System.Drawing.Size(106, 68);
-            this.deconnect.TabIndex = 1;
-            this.deconnect.UseVisualStyleBackColor = false;
-            this.deconnect.Click += new System.EventHandler(this.deconnect_Click);
-            // 
-            // connect
-            // 
-            this.connect.BackColor = System.Drawing.Color.White;
-            this.connect.Enabled = false;
-            this.connect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.connect.ForeColor = System.Drawing.Color.White;
-            this.connect.Image = global::p2.Properties.Resources.connect;
-            this.connect.Location = new System.Drawing.Point(5, 33);
-            this.connect.Name = "connect";
-            this.connect.Size = new System.Drawing.Size(108, 68);
-            this.connect.TabIndex = 0;
-            this.connect.UseVisualStyleBackColor = false;
-            this.connect.Click += new System.EventHandler(this.connect_Click);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Image = global::p2.Properties.Resources.door;
-            this.checkBox1.Location = new System.Drawing.Point(23, 8);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(82, 85);
-            this.checkBox1.TabIndex = 9;
-            this.checkBox1.Text = "       ";
-            this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox9
-            // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Image = global::p2.Properties.Resources.smart_tv__1_;
-            this.checkBox9.Location = new System.Drawing.Point(115, 94);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(90, 85);
-            this.checkBox9.TabIndex = 8;
-            this.checkBox9.Text = "               ";
-            this.checkBox9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox9.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.checkBox9.UseVisualStyleBackColor = true;
-            // 
-            // checkBox8
-            // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Image = global::p2.Properties.Resources.wireless_router__1_;
-            this.checkBox8.Location = new System.Drawing.Point(23, 182);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(102, 85);
-            this.checkBox8.TabIndex = 7;
-            this.checkBox8.Text = "                  ";
-            this.checkBox8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox8.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.checkBox8.UseVisualStyleBackColor = true;
-            // 
-            // checkBox7
-            // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Image = global::p2.Properties.Resources.ac;
-            this.checkBox7.Location = new System.Drawing.Point(23, 273);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(54, 53);
-            this.checkBox7.TabIndex = 6;
-            this.checkBox7.Text = "      ";
-            this.checkBox7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox7.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.checkBox7.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Image = global::p2.Properties.Resources.light_bulb__2_;
-            this.checkBox4.Location = new System.Drawing.Point(23, 103);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(50, 53);
-            this.checkBox4.TabIndex = 3;
-            this.checkBox4.Text = "   ";
-            this.checkBox4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox4.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Image = global::p2.Properties.Resources.fridge__1_;
-            this.checkBox2.Location = new System.Drawing.Point(114, 8);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(82, 85);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "        ";
-            this.checkBox2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
