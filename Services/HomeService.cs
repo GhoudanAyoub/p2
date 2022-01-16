@@ -13,21 +13,21 @@ namespace p2.Services
     class HomeService
     {
 
-        public  BindingSource afficher()
+        public  List<home> afficher()
         {
-            MySqlDataAdapter MyDA = new MySqlDataAdapter();
-            string sqlSelectAll = "SELECT * from home";
-
-            MySqlCommand cmd = Connection.getMySqlCommand();
-            cmd.CommandText = sqlSelectAll;
-            MyDA.SelectCommand = cmd;
-
-            DataTable table = new DataTable();
-            MyDA.Fill(table);
-
-            BindingSource bSource = new BindingSource();
-            bSource.DataSource = table;
-            return bSource;
+            List<home> homeList = new List<home>();
+           MySqlConnection sqlConn = new MySqlConnection();
+            MySqlCommand sqlCmd = new MySqlCommand();
+            string sSql = "SELECT id,name,zone,currentPlace,status,x,y from home  where name != 'fridge'";
+            sqlConn.ConnectionString = "SERVER=localhost; DATABASE=f1; UID=ayoub; PASSWORD=ayoub";
+            sqlCmd.CommandText = sSql;
+            sqlCmd.CommandType = CommandType.Text;
+            sqlConn.Open();
+            sqlCmd.Connection = sqlConn;
+            MySqlDataReader reader = sqlCmd.ExecuteReader();
+            while (reader.Read())
+                homeList.Add(new home(int.Parse(reader["id"].ToString()), reader["name"].ToString(), reader["zone"].ToString(),reader["status"].ToString(), int.Parse(reader["currentPlace"].ToString()),int.Parse(reader["id"].ToString()), int.Parse(reader["y"].ToString())));
+            return homeList;
         }
 
         public  bool AfficherParIndex(int index)
@@ -85,12 +85,14 @@ namespace p2.Services
         public  bool Ajouter(home o)
         {
             MySqlCommand cmd = Connection.getMySqlCommand();
-            cmd.CommandText = "INSERT INTO home (name, zone,currentPlace,status)" +
-                "VALUES(@name, @zone,@currentPlace,@status)";
+            cmd.CommandText = "INSERT INTO home (name, zone,currentPlace,status,x,y)" +
+                "VALUES(@name, @zone,@currentPlace,@status,@x,@y)";
             cmd.Parameters.AddWithValue("@name", o.Name);
             cmd.Parameters.AddWithValue("@zone", o.Zone);
             cmd.Parameters.AddWithValue("@currentPlace", o.CurrentPlace);
             cmd.Parameters.AddWithValue("@status", o.Status);
+            cmd.Parameters.AddWithValue("@x", o.X);
+            cmd.Parameters.AddWithValue("@y", o.Y);
             cmd.ExecuteNonQuery();
             return true;
         }

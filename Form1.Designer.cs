@@ -294,11 +294,11 @@ namespace p2
             // 
             this.checkBox7.AutoSize = true;
             this.checkBox7.Image = global::p2.Properties.Resources.ac;
-            this.checkBox7.Location = new System.Drawing.Point(15, 273);
+            this.checkBox7.Location = new System.Drawing.Point(15, 282);
             this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(54, 53);
+            this.checkBox7.Size = new System.Drawing.Size(102, 85);
             this.checkBox7.TabIndex = 6;
-            this.checkBox7.Text = "      ";
+            this.checkBox7.Text = "                  ";
             this.checkBox7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBox7.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.checkBox7.UseVisualStyleBackColor = true;

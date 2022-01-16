@@ -19,6 +19,7 @@ namespace p2
             InitializeComponent();
             initFridge();
             initExitSwitch();
+            initCapt();
         }
         Panel myControle;
         Panel b;
@@ -27,6 +28,29 @@ namespace p2
         List<Panel> panels = new List<Panel>();
         private static int panelN = 1;
         private CheckBox check;
+        private List<home> homeList;
+
+        private void initCapt()
+        {
+            homeList = homeService.afficher();
+            foreach (home item in homeList)
+            {
+                myControle = new Panel();
+                myControle.Location = new Point(item.X, item.Y);
+                myControle.Size = new Size(64, 64);
+                myControle.Text = (panelN).ToString();
+                myControle.Name = item.Name;
+                myControle.BackColor = Color.Transparent;
+                myControle.Click += b_Click;
+                changeIcon(myControle, item.Status);
+                myControle.BackgroundImageLayout = ImageLayout.Stretch;
+                myControle.MouseDown += new MouseEventHandler(myContrl_MouseDown);
+                myControle.MouseMove += new MouseEventHandler(myContrl_MouseMove);
+                myControle.MouseUp += new MouseEventHandler(myContrl_MMouseUp);
+                panel3.Controls.Add(myControle);
+                panelN++;
+            }
+        }
         private void initFridge()
         {
             myControle = new Panel();
@@ -51,8 +75,8 @@ namespace p2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            myControle = new Panel();
             panelN++;
+            myControle = new Panel();
             if (checkBox1.Checked)
             {
                 check = checkBox1;
@@ -201,21 +225,21 @@ namespace p2
         private void button2_Click(object sender, EventArgs e)
         {
             if(homeService.AfficherParIndex(panelN)==true)homeService.delete(panelN);
+            if (panel3.Controls.Count == (homeList.Count()+3) ) removeButton.Enabled = false;
             panel3.Controls.Remove(panels.Last());
-            panels.RemoveAt(panelN - 2);
+            panels.RemoveAt(panelN -(homeList.Count()+2));
             panelN--;
             panel6.Visible = false;
-            if (panel3.Controls.Count == 1) removeButton.Enabled = false;
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
 
-            DialogResult dialogClose = MessageBox.Show("Do you Want To Add This "+ myControle.Name+" "+ myControle.Location.X+" "+ myControle.Location.Y, "YES", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            DialogResult dialogClose = MessageBox.Show("Do you Want To Add This "+ myControle.Name, "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             
             if (dialogClose == DialogResult.OK)
             {
-                homeService.Ajouter(new home(myControle.Name, ZonecomboBox2.Text,"E",panelN));
+                homeService.Ajouter(new home(myControle.Name, ZonecomboBox2.Text,"E",panelN , myControle.Location.X , myControle.Location.Y));
                 panel6.Visible = false;
             }
             else if (dialogClose == DialogResult.Cancel)
