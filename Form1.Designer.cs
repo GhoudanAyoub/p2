@@ -60,11 +60,13 @@ namespace p2
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -452,10 +454,21 @@ namespace p2
             // 
             this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel3.Controls.Add(this.panel7);
             this.panel3.Location = new System.Drawing.Point(3, 49);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(951, 737);
             this.panel3.TabIndex = 0;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.Transparent;
+            this.panel7.BackgroundImage = global::p2.Properties.Resources.exit;
+            this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel7.Location = new System.Drawing.Point(280, 604);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(82, 80);
+            this.panel7.TabIndex = 0;
             // 
             // Form1
             // 
@@ -477,6 +490,7 @@ namespace p2
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -513,6 +527,7 @@ namespace p2
         private System.Windows.Forms.Button push;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox ZonecomboBox2;
+        private System.Windows.Forms.Panel panel7;
     }
 }
 

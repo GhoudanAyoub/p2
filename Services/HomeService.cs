@@ -121,5 +121,12 @@ namespace p2.Services
             cmd.ExecuteNonQuery();
             return true;
         }
+        public  bool killSwitch()
+        {
+            MySqlCommand cmd = Connection.getMySqlCommand();
+            cmd.CommandText = "delete  from home where name != 'fridge'";
+            cmd.ExecuteNonQuery();
+            return true;
+        }
     }
 }

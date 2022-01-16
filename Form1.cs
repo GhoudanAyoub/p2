@@ -18,6 +18,7 @@ namespace p2
         {
             InitializeComponent();
             initFridge();
+            initExitSwitch();
         }
         Panel myControle;
         Panel b;
@@ -42,6 +43,10 @@ namespace p2
             myControle.MouseUp += new MouseEventHandler(myContrl_MMouseUp);
             panel3.Controls.Add(myControle);
 
+        }
+        private void initExitSwitch()
+        {
+            panel7.Click += ExitSwitch;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -141,23 +146,23 @@ namespace p2
         {
             if (homeService.AfficherStatus(int.Parse(b.Text)).Contains("E"))
             {
-                Eteindre.Enabled = false;
+                deconnect.Enabled = true;
                 allumer.Enabled = true;
+                Eteindre.Enabled = false;
                 connect.Enabled = false;
-                deconnect.Enabled = false;
             }else if (homeService.AfficherStatus(int.Parse(b.Text)).Contains("A"))
             {
                 Eteindre.Enabled = true;
+                deconnect.Enabled = true;
                 allumer.Enabled = false;
                 connect.Enabled = false;
-                deconnect.Enabled = false;
             }
             else if (homeService.AfficherStatus(int.Parse(b.Text)).Contains("D"))
             {
                 Eteindre.Enabled = false;
                 allumer.Enabled = false;
-                connect.Enabled = true;
                 deconnect.Enabled = false;
+                connect.Enabled = true;
             }
             else if (homeService.AfficherStatus(int.Parse(b.Text)).Contains("C"))
             {
@@ -206,7 +211,7 @@ namespace p2
         private void button7_Click(object sender, EventArgs e)
         {
 
-            DialogResult dialogClose = MessageBox.Show("Do you Want To Add This furniture", "YES", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            DialogResult dialogClose = MessageBox.Show("Do you Want To Add This "+ myControle.Name+" "+ myControle.Location.X+" "+ myControle.Location.Y, "YES", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             
             if (dialogClose == DialogResult.OK)
             {
@@ -216,8 +221,9 @@ namespace p2
             else if (dialogClose == DialogResult.Cancel)
             {
                 panel3.Controls.Remove(panels.Last());
-                panels.RemoveAt(panelN - 1);
+                panels.RemoveAt(panelN - 2);
                 panelN--;
+                panel6.Visible = false;
             }
         }
 
@@ -251,7 +257,9 @@ namespace p2
             {
                 connect.Enabled = false;
                 deconnect.Enabled = true;
-                homeService.ModifierAll(comboBox1.Text, "C");
+                allumer.Enabled = true;
+                Eteindre.Enabled = false;
+                homeService.Modifier(int.Parse(b.Text), "C");
                 changeIcon(b, "C");
             }
 
@@ -264,7 +272,9 @@ namespace p2
             {
                 connect.Enabled = true;
                 deconnect.Enabled = false;
-                homeService.ModifierAll(comboBox1.Text, "D");
+                allumer.Enabled = false;
+                Eteindre.Enabled = false;
+                homeService.Modifier(int.Parse(b.Text), "D");
                 changeIcon(b, "D");
             }
         }
@@ -350,6 +360,19 @@ namespace p2
                 else { 
                     connect.Enabled = false; deconnect.Enabled = true;
                 }
+        }
+        void  ExitSwitch(object sender, EventArgs e)
+        {
+            DialogResult dialogClose = MessageBox.Show("Do you Want To Exit Home", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (dialogClose == DialogResult.OK)
+            {
+                b.BackgroundImage = Properties.Resources.exit__1_;
+
+                panel3.Controls.Clear();
+                panels.Clear();
+                if (homeService.killSwitch())
+                    this.Close();
+            }
         }
     }
 }
