@@ -26,7 +26,7 @@ namespace p2.Services
             sqlCmd.Connection = sqlConn;
             MySqlDataReader reader = sqlCmd.ExecuteReader();
             while (reader.Read())
-                homeList.Add(new home(int.Parse(reader["id"].ToString()), reader["name"].ToString(), reader["zone"].ToString(),reader["status"].ToString(), int.Parse(reader["currentPlace"].ToString()),int.Parse(reader["id"].ToString()), int.Parse(reader["y"].ToString())));
+                homeList.Add(new home(int.Parse(reader["id"].ToString()), reader["name"].ToString(), reader["zone"].ToString(), reader["status"].ToString(), int.Parse(reader["currentPlace"].ToString()), int.Parse(reader["x"].ToString()), int.Parse(reader["y"].ToString())));
             return homeList;
         }
 
@@ -45,11 +45,11 @@ namespace p2.Services
             if (table.Rows.Count == 1) return true;
             return false;
         }
-        public bool checkZoneDisc(String  Zone)
+        public bool checkZoneAllu(String  Zone)
         {
             MySqlConnection sqlConn = new MySqlConnection();
             MySqlCommand sqlCmd = new MySqlCommand();
-            string sSql = "SELECT count(*) as cc from home where zone= '" + Zone+"' and status='D'";
+            string sSql = "SELECT count(*) as cc from home where zone= '" + Zone+"' and status like 'A' ";
             sqlConn.ConnectionString = "SERVER=localhost; DATABASE=f1; UID=ayoub; PASSWORD=ayoub";
             sqlCmd.CommandText = sSql;
             sqlCmd.CommandType = CommandType.Text;

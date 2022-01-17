@@ -51,14 +51,6 @@ namespace p2
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -282,9 +274,9 @@ namespace p2
             this.checkBox8.Image = global::p2.Properties.Resources.wireless_router__1_;
             this.checkBox8.Location = new System.Drawing.Point(15, 182);
             this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(102, 85);
+            this.checkBox8.Size = new System.Drawing.Size(130, 85);
             this.checkBox8.TabIndex = 7;
-            this.checkBox8.Text = "                  ";
+            this.checkBox8.Text = "                         ";
             this.checkBox8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBox8.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.checkBox8.UseVisualStyleBackColor = true;
@@ -296,9 +288,9 @@ namespace p2
             this.checkBox7.Image = global::p2.Properties.Resources.ac;
             this.checkBox7.Location = new System.Drawing.Point(15, 282);
             this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(102, 85);
+            this.checkBox7.Size = new System.Drawing.Size(114, 85);
             this.checkBox7.TabIndex = 6;
-            this.checkBox7.Text = "                  ";
+            this.checkBox7.Text = "                     ";
             this.checkBox7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBox7.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.checkBox7.UseVisualStyleBackColor = true;
@@ -345,119 +337,20 @@ namespace p2
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.radioButton4);
-            this.panel2.Controls.Add(this.radioButton3);
-            this.panel2.Controls.Add(this.radioButton2);
-            this.panel2.Controls.Add(this.radioButton1);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Location = new System.Drawing.Point(12, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(955, 791);
             this.panel2.TabIndex = 1;
             // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.BackColor = System.Drawing.Color.Blue;
-            this.radioButton4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.radioButton4.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButton4.Enabled = false;
-            this.radioButton4.ForeColor = System.Drawing.Color.Blue;
-            this.radioButton4.Location = new System.Drawing.Point(585, 23);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(17, 16);
-            this.radioButton4.TabIndex = 8;
-            this.radioButton4.UseVisualStyleBackColor = false;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.BackColor = System.Drawing.Color.Yellow;
-            this.radioButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.radioButton3.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButton3.Enabled = false;
-            this.radioButton3.ForeColor = System.Drawing.Color.Yellow;
-            this.radioButton3.Location = new System.Drawing.Point(681, 23);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(17, 16);
-            this.radioButton3.TabIndex = 7;
-            this.radioButton3.UseVisualStyleBackColor = false;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.BackColor = System.Drawing.Color.Lime;
-            this.radioButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.radioButton2.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButton2.Enabled = false;
-            this.radioButton2.ForeColor = System.Drawing.Color.Lime;
-            this.radioButton2.Location = new System.Drawing.Point(792, 22);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(17, 16);
-            this.radioButton2.TabIndex = 6;
-            this.radioButton2.UseVisualStyleBackColor = false;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.BackColor = System.Drawing.Color.Red;
-            this.radioButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.radioButton1.Enabled = false;
-            this.radioButton1.ForeColor = System.Drawing.Color.Red;
-            this.radioButton1.Location = new System.Drawing.Point(870, 22);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(17, 16);
-            this.radioButton1.TabIndex = 5;
-            this.radioButton1.UseVisualStyleBackColor = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(602, 21);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 17);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Connecter";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(699, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 17);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Deconnecter";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(809, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Allumer";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(886, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 17);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Eteindre";
-            // 
             // panel3
             // 
             this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel3.Controls.Add(this.panel7);
-            this.panel3.Location = new System.Drawing.Point(3, 49);
+            this.panel3.Location = new System.Drawing.Point(3, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(951, 737);
+            this.panel3.Size = new System.Drawing.Size(951, 782);
             this.panel3.TabIndex = 0;
             // 
             // panel7
@@ -489,7 +382,6 @@ namespace p2
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -500,15 +392,7 @@ namespace p2
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.CheckBox checkBox9;

@@ -21,6 +21,8 @@ namespace p2
             initExitSwitch();
             initCapt();
         }
+
+
         Panel myControle;
         Panel b;
         private Control activeControle;
@@ -36,7 +38,7 @@ namespace p2
             foreach (home item in homeList)
             {
                 myControle = new Panel();
-                myControle.Location = new Point(item.X, item.Y);
+                myControle.Location = new Point(item.X,item.Y);
                 myControle.Size = new Size(64, 64);
                 myControle.Text = (panelN).ToString();
                 myControle.Name = item.Name;
@@ -234,12 +236,13 @@ namespace p2
 
         private void button7_Click(object sender, EventArgs e)
         {
+            Point locationOnForm = myControle.FindForm().PointToClient(myControle.Parent.PointToScreen(myControle.Location));
 
             DialogResult dialogClose = MessageBox.Show("Do you Want To Add This "+ myControle.Name, "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             
             if (dialogClose == DialogResult.OK)
             {
-                homeService.Ajouter(new home(myControle.Name, ZonecomboBox2.Text,"E",panelN , myControle.Location.X , myControle.Location.Y));
+                homeService.Ajouter(new home(myControle.Name, ZonecomboBox2.Text,"E",panelN , locationOnForm.X-1 , locationOnForm.Y-1));
                 panel6.Visible = false;
             }
             else if (dialogClose == DialogResult.Cancel)
@@ -254,10 +257,11 @@ namespace p2
         private void allumer_Click(object sender, EventArgs e)
         {
 
-
-            DialogResult dialogClose = MessageBox.Show("Do you Want To Turn On This furniture", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            DialogResult dialogClose = MessageBox.Show("Do you Want To Turn On This !!", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (dialogClose == DialogResult.OK)
             {
+            Eteindre.Enabled = true;
+            allumer.Enabled = false;
             homeService.Modifier(int.Parse(b.Text), "A");
             changeIcon(b, "A");
             }
@@ -266,9 +270,11 @@ namespace p2
 
         private void Eteindre_Click(object sender, EventArgs e)
         {
-            DialogResult dialogClose = MessageBox.Show("Do you Want To Turn Off This furniture", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            DialogResult dialogClose = MessageBox.Show("Do you Want To Turn Off This !!", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (dialogClose == DialogResult.OK)
             {
+                Eteindre.Enabled = false;
+                allumer.Enabled = true;
                 homeService.Modifier(int.Parse(b.Text), "E");
                 changeIcon(b, "E");
             }
@@ -276,7 +282,7 @@ namespace p2
 
         private void connect_Click(object sender, EventArgs e)
         {
-            DialogResult dialogClose = MessageBox.Show("Do you Want To Connect This Zone", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            DialogResult dialogClose = MessageBox.Show("Do you Want To Connect This !!", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (dialogClose == DialogResult.OK)
             {
                 connect.Enabled = false;
@@ -291,7 +297,7 @@ namespace p2
 
         private void deconnect_Click(object sender, EventArgs e)
         {
-            DialogResult dialogClose = MessageBox.Show("Do you Want To Deconnect This Zone", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            DialogResult dialogClose = MessageBox.Show("Do you Want To Deconnect This !!", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (dialogClose == DialogResult.OK)
             {
                 connect.Enabled = true;
@@ -304,7 +310,7 @@ namespace p2
         }
         private void changeIcon(Panel b,String valeur)
         {
-            if (valeur.Contains("A") || valeur.Contains("C")){
+            if (valeur.Contains("A") ){
                 if (b.Name.Contains("tv")) b.BackgroundImage = Properties.Resources.smart_tv;
                 else if (b.Name.Contains("door") ) b.BackgroundImage = Properties.Resources.door__1_;
                 else if (b.Name.Contains("lamp") ) b.BackgroundImage = Properties.Resources.light_bulb;
@@ -378,15 +384,19 @@ namespace p2
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-                if (homeService.checkZoneDisc(comboBox1.Text)) { 
-                    connect.Enabled = true; deconnect.Enabled = false;
-                }
-                else { 
+                if (homeService.checkZoneAllu(comboBox1.Text)) { 
                     connect.Enabled = false; deconnect.Enabled = true;
+                Eteindre.Enabled = true;allumer.Enabled = true;
                 }
+                else
+            { 
+                connect.Enabled = true; deconnect.Enabled = true;
+                Eteindre.Enabled = true; allumer.Enabled = true;
+            }
         }
         void  ExitSwitch(object sender, EventArgs e)
         {
+            Panel b = (Panel)sender;
             DialogResult dialogClose = MessageBox.Show("Do you Want To Exit Home", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (dialogClose == DialogResult.OK)
             {
@@ -398,5 +408,5 @@ namespace p2
                     this.Close();
             }
         }
-    }
+}
 }
