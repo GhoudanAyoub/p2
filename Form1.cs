@@ -14,14 +14,6 @@ namespace p2
     public partial class Form1 : Form
     {
         HomeService homeService = new HomeService();
-        public Form1()
-        {
-            InitializeComponent();
-            initFridge();
-            initExitSwitch();
-            initCapt();
-        }
-
 
         Panel myControle;
         Panel b;
@@ -31,6 +23,17 @@ namespace p2
         private static int panelN = 1;
         private CheckBox check;
         private List<home> homeList;
+
+        public Form1()
+        {
+            InitializeComponent();
+            initFridge();
+            initExitSwitch();
+            initCapt();
+
+        }
+
+
 
         private void initCapt()
         {
@@ -56,7 +59,7 @@ namespace p2
         private void initFridge()
         {
             myControle = new Panel();
-            myControle.Location = new Point(530, 480);
+            myControle.Location = new Point(530, 500);
             myControle.Size = new Size(64, 64);
             myControle.Text = (panelN).ToString();
             myControle.Name = string.Format("Fridge1");
@@ -236,13 +239,26 @@ namespace p2
 
         private void button7_Click(object sender, EventArgs e)
         {
+            String n="";
             Point locationOnForm = myControle.FindForm().PointToClient(myControle.Parent.PointToScreen(myControle.Location));
 
             DialogResult dialogClose = MessageBox.Show("Do you Want To Add This "+ myControle.Name, "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             
             if (dialogClose == DialogResult.OK)
             {
-                homeService.Ajouter(new home(myControle.Name, ZonecomboBox2.Text,"E",panelN , locationOnForm.X-1 , locationOnForm.Y-1));
+                if (locationOnForm.X > 47 && locationOnForm.X < 250 && locationOnForm.Y < 290)
+                    n = "Zone1";
+                else if(locationOnForm.X > 250 && locationOnForm.X < 410 && locationOnForm.Y < 219)
+                    n = "Zone2";
+                else if(locationOnForm.X > 480 && locationOnForm.X < 650 && locationOnForm.Y < 380)
+                    n = "Zone3";
+                else if(locationOnForm.X > 230 && locationOnForm.X < 470 && locationOnForm.Y > 500)
+                    n = "Zone4";
+                else if(locationOnForm.X > 220 && locationOnForm.X < 260 && locationOnForm.Y > 370)
+                   n = "Zone5";
+                else if(locationOnForm.X > 28 && locationOnForm.X < 210 && locationOnForm.Y > 370)
+                    n = "Zone6";
+                homeService.Ajouter(new home(myControle.Name, n,"E",panelN , locationOnForm.X-1 , locationOnForm.Y-1));
                 panel6.Visible = false;
             }
             else if (dialogClose == DialogResult.Cancel)
@@ -384,11 +400,16 @@ namespace p2
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-                if (homeService.checkZoneAllu(comboBox1.Text)) { 
+                if (homeService.checkZoneAllu(comboBox1.Text)==1) { 
                     connect.Enabled = false; deconnect.Enabled = true;
                 Eteindre.Enabled = true;allumer.Enabled = true;
                 }
-                else
+            else if(homeService.checkZoneAllu(comboBox1.Text) == 0) {
+                MessageBox.Show("Zone Vide");
+                connect.Enabled = false; deconnect.Enabled = false;
+                Eteindre.Enabled = false; allumer.Enabled = false;
+            }
+            else if (homeService.checkZoneAllu(comboBox1.Text) ==-1)
             { 
                 connect.Enabled = true; deconnect.Enabled = true;
                 Eteindre.Enabled = true; allumer.Enabled = true;

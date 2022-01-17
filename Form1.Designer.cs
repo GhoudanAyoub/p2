@@ -32,9 +32,7 @@ namespace p2
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.ZonecomboBox2 = new System.Windows.Forms.ComboBox();
             this.push = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.Eteindre = new System.Windows.Forms.Button();
@@ -77,53 +75,25 @@ namespace p2
             // panel6
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.ZonecomboBox2);
             this.panel6.Controls.Add(this.push);
-            this.panel6.Controls.Add(this.label5);
-            this.panel6.Location = new System.Drawing.Point(3, 510);
+            this.panel6.Location = new System.Drawing.Point(3, 564);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(233, 103);
+            this.panel6.Size = new System.Drawing.Size(233, 49);
             this.panel6.TabIndex = 9;
             this.panel6.Visible = false;
-            // 
-            // ZonecomboBox2
-            // 
-            this.ZonecomboBox2.FormattingEnabled = true;
-            this.ZonecomboBox2.Items.AddRange(new object[] {
-            "Zone1",
-            "Zone2",
-            "Zone3",
-            "Zone4",
-            "Zone5",
-            "Zone6",
-            "Zone7"});
-            this.ZonecomboBox2.Location = new System.Drawing.Point(83, 14);
-            this.ZonecomboBox2.Name = "ZonecomboBox2";
-            this.ZonecomboBox2.Size = new System.Drawing.Size(145, 24);
-            this.ZonecomboBox2.TabIndex = 10;
             // 
             // push
             // 
             this.push.BackColor = System.Drawing.Color.Teal;
             this.push.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.push.ForeColor = System.Drawing.Color.White;
-            this.push.Location = new System.Drawing.Point(57, 57);
+            this.push.Location = new System.Drawing.Point(59, 3);
             this.push.Name = "push";
             this.push.Size = new System.Drawing.Size(118, 39);
             this.push.TabIndex = 2;
             this.push.Text = "Push";
             this.push.UseVisualStyleBackColor = false;
             this.push.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 13);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 25);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Zone :";
             // 
             // panel5
             // 
@@ -358,7 +328,7 @@ namespace p2
             this.panel7.BackColor = System.Drawing.Color.Transparent;
             this.panel7.BackgroundImage = global::p2.Properties.Resources.exit;
             this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel7.Location = new System.Drawing.Point(280, 604);
+            this.panel7.Location = new System.Drawing.Point(274, 649);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(82, 80);
             this.panel7.TabIndex = 0;
@@ -377,7 +347,6 @@ namespace p2
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -409,8 +378,6 @@ namespace p2
         private System.Windows.Forms.Button connect;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button push;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox ZonecomboBox2;
         private System.Windows.Forms.Panel panel7;
     }
 }
