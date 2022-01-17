@@ -111,6 +111,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="icons\2BHK-Planning-Of-House-Design-With-Furniture-Layout-AutoCAD-File--Fri-Dec-2019-05-20-30.jpg" />
     <Content Include="icons\ac %281%29.png" />
     <Content Include="icons\ac.png" />
     <None Include="icons\connect.png" />
